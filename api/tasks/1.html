@@ -1,0 +1,27 @@
+<screen>
+<h2>Tarea {{id}}</h2>
+Tarea:        [tarea                     ]
+[            ]{{tarea}}
+Fecha límite: [fecha                     ]
+Entregables:  [entregables               ]
+Notas:
+[a][comentario                           ]
+                                 [guardar]
+</screen>
+
+<script>
+    api.tasks.get(params.id).then(task => data = Object.assign(data, task.attributes));
+
+    $fecha.props.type = "date";
+    $comentario.type = TextArea;
+    $comentario.props.placeholder = "Escribe una nota o comentario";
+    $guardar.type = Button;
+    $guardar.text = "Guardar";
+    $guardar.props.onclick = function(e) {
+        api.tasks.patch({
+            id: data.id,
+            attributes: data
+        });
+    };
+    $a.type = Avatar;
+</script>
