@@ -657,7 +657,7 @@ figure.avatar figcaption {
 
 /** dialog **/
 dialog {
-	overflow: visible;
+	overflow: visible auto;
 }
 
 .flex {
@@ -761,7 +761,10 @@ button.answer {
 	display: flex;
 	margin: 0rem 1rem;
 	padding: 1rem 1rem;
-	width: calc(100% - 2rem);
+	width: calc(100% - 4rem);
+	border: 1px solid var(--input-border);
+	border-radius: 4px;
+	background-color: var(--input-bg);
 }
 .suscripcion > div {
 	text-align: left;
